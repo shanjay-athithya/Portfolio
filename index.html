@@ -20,6 +20,7 @@
         }
 
         body {
+            overflow-x: hidden;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
@@ -446,13 +447,10 @@
         }
 
         /* Add this section at the end of your existing CSS */
-
-/* Mobile Styles */
-        /* Mobile Styles */
-        /* Mobile Styles */
         @media only screen and (max-width: 600px) {
             body {
-                font-size: 14px; /* Adjust font size for smaller screens */
+                font-size: 14px;
+                overflow-x: hidden;
             }
 
             header {
@@ -460,12 +458,14 @@
                 align-items: center;
                 padding: 20px;
                 margin-top: 20px;
+                margin-left: 200px;
+                width: 100%;
             }
 
             .profile-pic {
                 margin-left: 0;
                 margin-bottom: 20px;
-                width: 150px; /* Adjust image size for smaller screens */
+                width: 150px;
                 height: 150px;
             }
 
@@ -485,30 +485,52 @@
                 margin-left: 0;
                 text-align: center;
             }
+            .about{
+                margin-left:120px;
+
+            }
+            .split-screen{
+                margin-left: 212px;
+            }
+
+            .portfolio{
+                margin-left:2px;
+
+            }
+
+            .resume{
+                margin-right: 100px;
+                width: 580px;
+            }
 
             .about-container {
                 flex-direction: column;
                 align-items: center;
+                margin-left:0px;
+                margin-right: 60px;
+
             }
 
             .about-pic {
                 margin-left: 0;
-                width: 150px; /* Adjust image size for smaller screens */
+                width: 150px;
                 height: 150px;
                 margin-bottom: 10px;
+                margin-left: 180px;
             }
 
             .about-skills,
             .about-education {
                 width: 100%;
                 margin: 20px 0;
+                margin-left: 60px;
             }
 
             .about-skills ul {
-                column-count: 1; /* Set to 1 column for smaller screens */
-                column-gap: 0; /* Remove gap between columns */
-                padding: 0; /* Remove default padding */
-                list-style: none; /* Remove default list styles */
+                column-count: 1;
+                column-gap: 0;
+                padding: 0;
+                list-style: none;
             }
 
             .social-links {
@@ -517,39 +539,29 @@
 
             .social-links img {
                 margin: 5px;
-                width: 30px; /* Adjust social media icon size for smaller screens */
+                width: 30px;
             }
 
             section {
-                padding: 10px; /* Adjust padding for sections on smaller screens */
+                padding: 10px;
+                width: 100%;
+
             }
 
             header,
             section {
-                width: 100%;
+                width: 600px;
             }
 
-            .resume-button {
-                margin-top: 10px;
-                margin-bottom: 10px;
-                padding: 10px 20px;
+            footer{
+                width:600px;
+                margin-left:220px;
             }
 
-            .contact-links a {
-                margin-top: 10px;
-                margin-bottom: 10px;
-                padding: 10px 20px;
-            }
 
-            .split-top,
-            .split-bottom {
-                padding: 20px;
-            }
-
-            .contact {
-                height: auto;
-            }
         }
+
+
 
 
         /* ... (rest of your existing CSS) ... */

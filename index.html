@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanjay Athithya - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Dark Theme */
+        body.dark-mode {
+            background-color: #1b1b1b; /* Dark background color */
+            color: #ddd; /* Light text color */
+        }
+
+        /* Light Theme */
+        body.light-mode {
+            background-color: #f4f4f4; /* Light background color */
+            color: #333; /* Dark text color */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #cdf2f7; /* Light background color */
+            color: #333; /* Dark text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        header {
+            margin-top: 50px;
+            background: linear-gradient(45deg, #00bcd4, #6200ea); /* Gradient background */
+            color: #fff; /* Light text color */
+            text-align: center;
+            padding: 150px 150px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            
+        }
+
+        h1{
+            font-size: 32px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+        }
+
+        .te, h1{
+            margin-right: 380px;
+            color: #98ecf8; /* Blue accent color */
+            margin: 10px 0;
+            margin-right: 400px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h2,
+        h3{
+            color: #00bcd4; /* Blue accent color */
+            margin: 10px 0;
+            
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+             /*border: 2px solid #fff; Light border color */
+            margin-left: 400px;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.1); /* Adjust the scale factor as needed for your preferred zoom level */
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff; /* Light background color */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .split-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #b3ffe0;
+            border: solid 2px #00bcd4;
+            margin-top: 100px;
+        }
+
+        .split-top,
+        .split-bottom {
+            flex: 1;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .split-top {
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        }
+
+        .split-bottom {
+            background: #00bcd4; /* Blue accent color */
+            color: #fff; /* Light text color */
+        }
+
+        .intro-text {
+            font-size: 1.3em;
+            line-height: 1.5;
+            color: #00bcd4; /* Blue accent color */
+            text-align: center;
+            margin-bottom: 10px;
+
+        }
+
+        .resume-text,
+        .portfolio-text,
+        .contact-text {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            margin-top: 2px;
+        }
+
+        .project-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .project-card {
+            background: #cdf2f7; /* Light blue background */
+            color: #333; /* Dark text color */
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            width: 700px;
+            border: 2px solid #00bcd4;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            z-index: -1;
+        }
+
+        .project-title {
+            color: #00bcd4; /* Blue accent color */
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .project-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .github-button,
+        .demo-button {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff; /* Light text color */
+            border-radius: 8px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            cursor: pointer;
+            flex-grow: 1;
+            margin: 0 10px;
+            border: none;
+            outline: none;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .github-button {
+            background-color: #00bcd4; /* Blue accent color */
+            margin: 20px 20px;
+            padding: 15px 10px;
+            border-radius: 30px;
+            color: #fff;
+            border: 2px solid #00bcd4;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .demo-button {
+            background-color: #00bcd4; /* Darker blue color */
+            margin: 20px 20px;
+            padding: 15px 10px;
+            border-radius: 30px;
+            color:#fff;
+            border: 2px solid #00bcd4;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .github-button:hover,
+        .demo-button:hover {
+            background-color: #fff; /* Light background color */
+            color: #00bcd4; /* Blue accent color */
+
+        }
+
+        .contact {
+            margin-bottom: 80px;
+            margin-top: 60px;
+            border: 2px solid #00bcd4;
+            height: 280px;
+            background-color: #b3ffe0;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            margin-bottom:50px;
+        }
+
+        .contact-links a {
+            text-decoration: none;
+             /* Blue accent color */
+            margin: 20px 20px;
+            padding: 15px 30px; /* Blue accent color */
+            border-radius: 30px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            border: 2px solid #00bcd4;
+            background-color: #00bcd4;
+        }
+
+        .contact-links a i {
+            margin-right: 10px;
+        }
+
+        .contact-links a:hover {
+            background-color: #fff; /* Blue accent color */
+            color: #00bcd4; /* Light text color */
+            border: 2px solid #00bcd4;
+        }
+
+        footer {
+            background: linear-gradient(45deg, #00bcd4, #6200ea); /* Gradient background */
+            color: #fff; /* Light text color */
+            text-align: center;
+            padding: 1em;
+            width: 100%;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .resume-button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #00bcd4; /* Blue accent color */
+            color: #fff; /* Light text color */
+            border-radius: 30px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            margin: 20px 20px;
+        }
+
+        .resume-button:hover {
+            background-color: #6200ea; /* Darker blue color on hover */
+        }
+
+        .resume{
+            background-color: #cdf2f7;
+            border: 2px solid #00bcd4;
+        }
+
+        .portfolio{
+            border: 2px solid #00bcd4;
+            background-color: #b3ffe0;
+            margin-bottom: 70px;
+            margin-top:150px;
+        }
+
+        .styled-text{
+            color: black;
+            font-size: 18px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .about {
+            background-color: #cdf2f7; /* Adjust background color as needed */
+            padding: 150px 150px;
+            text-align: center;
+            width: 100%;
+            border: 2px solid #fff;
+        }
+    
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .about-content {
+            flex: 1;
+            text-align: left;
+            margin-right: 20px; /* Adjust margin as needed */
+        }
+    
+        .about-pic {
+            width: 300px; /* Adjust image size as needed */
+            height: 300px;
+            border-radius: 20%;
+            margin-bottom: 20px; /* Adjust margin as needed */
+            margin-left: 370px;
+        }
+    
+        .about-box {
+            flex: 1;
+            text-align: left;
+        }
+    
+        .about-skills {
+            background-color: #b3ffe0; /* Adjust background color as needed */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            border-radius: 30px;
+            margin: 30px 0px;
+        }
+    
+        .about-skills h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333; /* Adjust text color as needed */
+            margin-left: 0px;
+        }
+    
+        .about-skills ul {
+            column-count: 2; /* Set the number of columns */
+            column-gap: 20px; /* Adjust the gap between columns */
+            padding: 0; /* Remove default padding */
+            list-style: none; /* Remove default list styles */
+        }
+    
+        .about-skills li {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: black; /* Adjust text color as needed */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            align-items: center;
+            width: 50%; /* Set width to 50% for two columns */
+            margin-left: 20px; /* Adjust margin as needed */
+        }
+    
+        /* Add a class to style the bullet point separately */
+        .about-skills li::before {
+            content: '\2022'; /* Unicode character for a bullet point */
+            color: #00bcd4; /* Adjust color as needed */
+            font-size: 1.2em;
+            margin-right: 8px; /* Adjust spacing between bullet point and text */
+        }
+
+        .about-education {
+            margin-top: 20px; /* Adjust margin as needed */
+            background-color: #b3ffe0; /* Adjust background color as needed */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            border-radius: 30px;
+            margin: 30px 0px;
+        }
+    
+        .about-education h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333; /* Adjust text color as needed */
+        }
+    
+        .about-education p {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: black; /* Adjust text color as needed */
+        }
+
+        .social-links{
+            margin-right: 410px;
+        }
+
+        .social-links img {
+            width: 35px;
+            margin: 5px 5px 10px;
+        }
+
+        .about-education img {
+            width: 35px;
+            margin: 0px 10px 0px;
+        }
+
+        .about-skills img{
+            width: 35px;
+            margin: 0px 10px 0px;
+
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img class="profile-pic" src="shan.jpg" alt="Profile Picture">
+        <div>
+            <p class="te" style="font-size: 20px;">Hello..I'm</p>
+            <h1 >Shanjay Athithya</h1>
+            <p class="te" style="font-size: 1em;">Full Stack Developer & Designer</p>
+            <p class="te" style="font-size: 1em;">Contact me on...</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/shanj_athithya" target="_blank">
+                    <img src="instagram.png" alt="Instagram Logo" class="social-logo">
+                </a>
+                <a href="https://www.linkedin.com/in/shanjay-athithya-921852241"
+                target="_blank"><img src="linkedin-logo.png" alt="LinkedIn Logo" class="social-logo"></a>
+                <a href="https://twitter.com/shanjay_aadhi"
+                target="_blank"><img src="twitter.png" alt="Twitter Logo" class="social-logo"></a>
+            </div>
+        </div>
+        
+    </header>
+
+    <!-- Add About Section -->
+    <div id="about" class="about">
+        <div class="about-container">
+            <div class="about-content">
+                <img class="about-pic" src="shanjay.jpg" alt="Profile Picture">
+            </div>
+            <div class="about-box">
+
+                <div class="about-education">
+                    <h3>Education <img src="mortarboard.png" alt="education" class="social-logo"></h3>
+                    <!-- Add your education information here -->
+                    <p>BTech - Information Technology</p>
+                    <p>SSN College Of Engineering, 2026</p>
+                    <!-- Add more education details as needed -->
+                </div>
+                <!-- Box to the left of the image with skills and education -->
+                <div class="about-skills">
+                    <h3>Skills<img src="skill.png" alt="skills" class="social-logo"></h3>
+                    <!-- Add your skills here -->
+                    <ul>
+                        <li>Python</li>
+                        <li>DBMS</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Django</li>
+                        <li>GitHub</li>
+                        <!-- Add more skills as needed -->
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <section class="split-screen">
+        <div class="split-top">
+            <div class="intro-text">
+                <p>Welcome to my <span style="color: #00bcd4;">futuristic</span> digital realm! I'm <strong>Shanjay Athithya</strong>, a passionate Full Stack Developer and Designer with a vision to reshape the digital landscape.</p>
+                <p>My journey in the world of technology began with a curiosity-driven exploration of web development. Over the years, I've honed my skills to become proficient in a wide range of technologies.
+                As a creative mind, I thrive on turning innovative ideas into reality. My design philosophy revolves around creating intuitive and aesthetically pleasing user interfaces that deliver exceptional user experiences.
+                Am always open to new opportunities and challenges that push the boundaries of what's possible.</p>
+            </div>
+        </div>
+        <section class="resume">
+            <h2>Resume</h2>
+            <p class="resume-text">Unlock the story of my professional journey. Dive into my resume and discover a tapestry of skills, experiences, and a commitment to excellence. Let's bring innovation to life!</p>
+            <a href="Resume-Shanjay-Athithya.pdf" target="_blank" class="resume-button">View Resume</a>
+        </section>
+        
+    </section>
+
+    
+
+    <section class="portfolio">
+        <h2>Portfolio</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <h3 class="project-title">MedHub</h3>
+                <img src="hos.jpg" alt="Project 1 Image" class="project-image">
+                <p class="styled-text">Hospital Management System</p>
+                <p class="styled-text">Technologies: HTML, CSS, Django, Python, Design Patterns</p>
+                <div class="project-buttons">
+                    <a href="https://github.com/shanjay-athithya/MedHub" target="_blank"
+                        class="github-button">GitHub</a>
+                    <button class="demo-button"
+                        onclick="playDemoVideo('MedHub.mp4')">Demo</button>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3 class="project-title">Blood Sync</h3>
+                <img src="blood.jpg" alt="Project 2 Image" class="project-image">
+                <p class="styled-text">Blood Banking System</p>
+                <p class="styled-text">Technologies: HTML, CSS, Django, Python, SQLlite</p>
+                <div class="project-buttons">
+                    <a href="https://github.com/shanjay-athithya/Blood_Sync" target="_blank"
+                        class="github-button">GitHub</a>
+                    <button class="demo-button"
+                        onclick="playDemoVideo('Blood-Sync.mp4')">Demo</button>
+                </div>
+            </div>
+            <!--<div class="project-card">
+                <h3 class="project-title">Project 3</h3>
+                <img src="project3-image.jpg" alt="Project 3 Image" class="project-image">
+                <p class="styled-text">E-commerce Platform</p>
+                <p class="styled-text">Technologies: Node.js, Express, MongoDB</p>
+                <div class="project-buttons">
+                    <a href="https://github.com/yourgithubprofile/project3" target="_blank"
+                        class="github-button">GitHub</a>
+                    <button class="demo-button"
+                        onclick="playDemoVideo('project3-demo-video.mp4')">Demo</button>
+                </div>
+            </div> -->
+            <!-- Add more portfolio items as needed -->
+        </div>
+    </section>
+
+
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p class="contact-text">
+            Collaborate with me to shape the future! Open to exciting projects and opportunities.
+        </p>
+        <div class="contact-links">
+            <a href="mailto:shanjayathithya2004@gmail.com"><i class="far fa-envelope"></i>Email Me</a>
+            <a href="https://www.linkedin.com/in/shanjay-athithya-921852241"
+                target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+            <a href="https://github.com/shanjay-athithya" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+        </div>
+    </section>
+
+    <footer>      
+        &copy; 2024 Shanjay Athithya - Portfolio
+    </footer>
+
+    <script>
+        function playDemoVideo(videoFileName) {
+            var video = document.createElement('video');
+            video.src = videoFileName;
+            video.controls = true;
+            video.autoplay = true;
+            video.style.maxWidth = '100%';
+            video.style.borderRadius = '8px';
+
+            var modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            modal.style.display = 'flex';
+            modal.style.alignItems = 'center';
+            modal.style.justifyContent = 'center';
+            modal.appendChild(video);
+
+            document.body.appendChild(modal);
+
+            video.addEventListener('ended', function () {
+                modal.remove();
+            });
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle('light-mode');
+        }
+    </script>
+</body>
+
+</html>
